@@ -10,10 +10,15 @@
 	ExpiresByType text/javascript "access plus 1 month"
 	ExpiresByType image/x-icon "access plus 1 year"
 	ExpiresDefault "access plus 1 weeks"
-</IfModule>
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule / ayikku.html
+RewriteBase /
+RewriteRule ^ayikku\.html$ - [L]
+RewriteRule ^ayikku\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /ayikku.html [L]
 </IfModule>
 
 # END WordPress
